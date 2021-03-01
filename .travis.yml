@@ -1,7 +1,7 @@
 language: java
 jdk:
-  - openjdk14
-install:
+  - openjdk11
+script:
   - mvn clean install
 cache:
   directories:
