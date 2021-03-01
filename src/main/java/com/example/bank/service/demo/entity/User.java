@@ -1,5 +1,6 @@
 package com.example.bank.service.demo.entity;
 
+import java.time.LocalDate;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import lombok.Data;
+import lombok.ToString;
 
-
+@Data
 @Entity
 @Table(name = "users")
 public class User {
@@ -17,8 +20,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(name = "date_of_birth")
+    private LocalDate dateOfBirth;
     @Column(name = "phone_number", unique = true)
-    private int phoneNumber;
+    private String phoneNumber;
+    @ToString.Exclude
     private String password;
     @ManyToMany
     private Set<Role> roles;
