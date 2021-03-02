@@ -27,7 +27,7 @@ public class TransactionServiceImpl implements TransactionService {
         transactionCredited.setType(Transaction.Type.OUTCOMING);
         transactionCredited.setFromAccount(fromAccount);
         transactionCredited.setToAccount(toAccount);
-        fromAccount.setBalance(fromAccount.getBalance()-amount);
+        fromAccount.setBalance(fromAccount.getBalance() - amount);
         accountService.add(fromAccount);
         transactionRepository.save(transactionCredited);
 
@@ -37,7 +37,7 @@ public class TransactionServiceImpl implements TransactionService {
         transactionDebited.setType(Transaction.Type.INCOMING);
         transactionDebited.setFromAccount(fromAccount);
         transactionDebited.setToAccount(toAccount);
-        toAccount.setBalance(toAccount.getBalance()+amount);
+        toAccount.setBalance(toAccount.getBalance() + amount);
         accountService.add(toAccount);
         transactionRepository.save(transactionDebited);
     }

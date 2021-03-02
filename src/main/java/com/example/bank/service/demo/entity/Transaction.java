@@ -1,6 +1,5 @@
 package com.example.bank.service.demo.entity;
 
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,7 +33,7 @@ public class Transaction {
     @Column(nullable = false)
     private Type type;
 
-    public enum Type{
+    public enum Type {
         INCOMING, OUTCOMING;
     }
 }

@@ -1,6 +1,5 @@
 package com.example.bank.service.demo.entity;
 
-import java.math.BigInteger;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -32,13 +31,12 @@ public class Account {
     @ToString.Exclude
     private User user;
 
-
     public double getBalance() {
         return balance;
     }
 
     public void setBalance(double balance) {
-        if(balance < 0){
+        if (balance < 0) {
             throw new RuntimeException("Negative banance after transaction!");
         }
         this.balance = balance;

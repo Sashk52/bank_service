@@ -3,7 +3,6 @@ package com.example.bank.service.demo.service.impl;
 import com.example.bank.service.demo.entity.Account;
 import com.example.bank.service.demo.repository.AccountRepository;
 import com.example.bank.service.demo.service.AccountService;
-import java.util.Optional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
