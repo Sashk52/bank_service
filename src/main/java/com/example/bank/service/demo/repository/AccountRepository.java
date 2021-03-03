@@ -10,6 +10,5 @@ import org.springframework.stereotype.Repository;
 public interface AccountRepository extends JpaRepository<Account, Long> {
     Optional<Account> getByAccountNumber(String accountNumber);
 
-    @Override
-    List<Account> findAll();
+    List<Account> findAllByUserId(Long id);
 }

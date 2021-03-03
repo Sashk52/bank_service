@@ -33,7 +33,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<Account> getAllAccounts() {
-        return accountRepository.findAll();
+    public List<Account> getAllAccountsByUserId(Long id) {
+        return accountRepository.findAllByUserId(id);
     }
 }
