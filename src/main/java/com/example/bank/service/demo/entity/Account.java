@@ -1,5 +1,6 @@
 package com.example.bank.service.demo.entity;
 
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,10 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "accounts")
 public class Account {
     @Id
@@ -24,20 +27,20 @@ public class Account {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Currency currency;
-    private double balance;
+    private BigDecimal balance;
     @Column(name = "is_active")
-    private boolean isActive; // set false after PATCH operation
+    private boolean isActive;
     @ManyToOne
     @ToString.Exclude
     private User user;
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
-        if (balance < 0) {
-            throw new RuntimeException("Negative banance after transaction!");
+    public void setBalance(BigDecimal balance) {
+        if (balance.compareTo(BigDecimal.ZERO) < 0) {
+            throw new RuntimeException("Negative balance is not allowed !");
         }
         this.balance = balance;
     }

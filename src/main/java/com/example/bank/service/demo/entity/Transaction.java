@@ -1,5 +1,6 @@
 package com.example.bank.service.demo.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,7 +29,7 @@ public class Transaction {
     private Account toAccount;
     @Column(nullable = false)
     private LocalDateTime dateTime;
-    private double amount;
+    private BigDecimal amount;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Type type;
