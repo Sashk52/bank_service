@@ -18,6 +18,6 @@ public class ClientService {
 
     public BigDecimal getRate(LocalDate date, Currency from, Currency to) {
         String path = String.format(url + "=%s&to=%s&date=%s", from, to, date);
-        return httpClient.sendHttpRequest(path);
+        return httpClient.getResultFromHttpRequest(path);
     }
 }

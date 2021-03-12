@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class HttpClient {
-    public BigDecimal sendHttpRequest(String path) {
+    public BigDecimal getResultFromHttpRequest(String path) {
         try {
             URL url = new URL(path);
             HttpURLConnection request = (HttpURLConnection) url.openConnection();
