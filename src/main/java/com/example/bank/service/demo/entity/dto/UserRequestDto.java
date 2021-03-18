@@ -1,6 +1,5 @@
 package com.example.bank.service.demo.entity.dto;
 
-import java.time.LocalDate;
 import lombok.Data;
 
 @Data

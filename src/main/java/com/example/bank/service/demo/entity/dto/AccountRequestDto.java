@@ -1,7 +1,5 @@
 package com.example.bank.service.demo.entity.dto;
 
-import com.example.bank.service.demo.entity.Currency;
-import java.math.BigDecimal;
 import lombok.Data;
 
 @Data
