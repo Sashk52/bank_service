@@ -15,7 +15,7 @@ public class TransactionMapperImpl implements TransactionMapper {
                 .toAccount(transaction.getToAccount())
                 .amount(transaction.getAmount())
                 .dateTime(transaction.getDateTime())
-                .type(transaction.getType())
+                .type(transaction.getType().toString())
                 .build();
     }
 }

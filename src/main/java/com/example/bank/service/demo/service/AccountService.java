@@ -8,9 +8,11 @@ public interface AccountService {
 
     Account getById(Long id);
 
+    Account getByAccountNumber(String accountNumber);
+
     void delete(Account account);
 
-    Account getByAccountNumber(String accountNumber);
+    List<Account> getAllAccountsByPhoneNumber(String phoneNumber);
 
     List<Account> getAllAccountsByUserId(Long id);
 }

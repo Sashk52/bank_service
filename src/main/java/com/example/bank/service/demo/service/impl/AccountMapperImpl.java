@@ -26,9 +26,11 @@ public class AccountMapperImpl implements AccountMapper {
     @Override
     public AccountResponseDto toDto(Account account) {
         return AccountResponseDto.builder()
+                .id(account.getId())
                 .accountNumber(account.getAccountNumber())
-                .currency(account.getCurrency())
-                .balance(account.getBalance())
+                .currency(account.getCurrency().toString())
+                .balance(account.getBalance().toString())
+                .isActive(account.isActive())
                 .build();
     }
 }

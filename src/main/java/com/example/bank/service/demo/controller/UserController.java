@@ -1,11 +1,9 @@
 package com.example.bank.service.demo.controller;
 
-import static com.example.bank.service.demo.entity.Role.RoleName.USER;
-
-import com.example.bank.service.demo.entity.Role;
 import com.example.bank.service.demo.entity.User;
 import com.example.bank.service.demo.entity.dto.UserRequestDto;
 import com.example.bank.service.demo.entity.dto.UserResponseDto;
+import com.example.bank.service.demo.service.RoleService;
 import com.example.bank.service.demo.service.UserMapper;
 import com.example.bank.service.demo.service.UserService;
 import lombok.AllArgsConstructor;
@@ -25,13 +23,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     private final UserService userService;
     private final UserMapper userMapper;
+    private final RoleService roleService;
 
     @PostMapping
     public UserResponseDto create(@RequestBody UserRequestDto userRequestDto) {
         User user = userMapper.toEntity(userRequestDto);
-        Role role = new Role();
-        role.setRoleName(USER);
-        user.getRoles().add(role);
+        user.getRoles().add(roleService.getByName("USER"));
         return userMapper.toDto(userService.save(user));
     }
 

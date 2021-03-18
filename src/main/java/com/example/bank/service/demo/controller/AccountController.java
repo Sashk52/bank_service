@@ -39,12 +39,15 @@ public class AccountController {
     }
 
     @GetMapping("/by-phone")
-    public AccountResponseDto getAllByPhoneNumber(@RequestParam String accountNumber) {
-        return accountMapper.toDto(accountService.getByAccountNumber(accountNumber));
+    public List<AccountResponseDto> getAllByPhoneNumber(@RequestParam String phoneNumber) {
+        return accountService.getAllAccountsByPhoneNumber(phoneNumber)
+                .stream()
+                .map(accountMapper::toDto)
+                .collect(Collectors.toList());
     }
 
     @PostMapping("/transfer")
-    public String transfer(@RequestParam TransactionRequestDto requestDto) {
+    public String transfer(@RequestBody TransactionRequestDto requestDto) {
         transactionService.transfer(requestDto.getToAccount(),
                 requestDto.getFromAccount(), requestDto.getAmount());
         return "Payment is successful!";
@@ -58,7 +61,7 @@ public class AccountController {
     @GetMapping("/history/{accountNumber}")
     public List<TransactionResponseDto> getHistory(
             @PathVariable String accountNumber,
-            @RequestParam(defaultValue = "1") Integer page,
+            @RequestParam(defaultValue = "0") Integer page,
             @RequestParam(defaultValue = "10") Integer limit) {
         return transactionService.getAllByAccount(page, limit,
                 accountService.getByAccountNumber(accountNumber))

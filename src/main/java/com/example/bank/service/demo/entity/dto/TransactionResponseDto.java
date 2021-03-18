@@ -1,7 +1,6 @@
 package com.example.bank.service.demo.entity.dto;
 
 import com.example.bank.service.demo.entity.Account;
-import com.example.bank.service.demo.entity.Transaction;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import lombok.Builder;
@@ -15,5 +14,5 @@ public class TransactionResponseDto {
     private Account toAccount;
     private LocalDateTime dateTime;
     private BigDecimal amount;
-    private Transaction.Type type;
+    private String type;
 }

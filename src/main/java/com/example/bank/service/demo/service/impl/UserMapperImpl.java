@@ -24,7 +24,7 @@ public class UserMapperImpl implements UserMapper {
                 .id(user.getId())
                 .name(user.getName())
                 .phoneNumber(user.getPhoneNumber())
-                .dateOfBirth(user.getDateOfBirth())
+                .dateOfBirth(user.getDateOfBirth().toString())
                 .build();
     }
 }
