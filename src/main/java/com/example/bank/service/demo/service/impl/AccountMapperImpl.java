@@ -29,6 +29,7 @@ public class AccountMapperImpl implements AccountMapper {
     public AccountResponseDto toDto(Account account) {
         return AccountResponseDto.builder()
                 .id(account.getId())
+                .userId(account.getUser().getId())
                 .accountNumber(account.getAccountNumber())
                 .currency(account.getCurrency().toString())
                 .balance(account.getBalance().toString())
