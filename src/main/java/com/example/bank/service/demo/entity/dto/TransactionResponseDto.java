@@ -10,9 +10,9 @@ import lombok.Data;
 @Builder
 public class TransactionResponseDto {
     private Long id;
-    private Account fromAccount;
-    private Account toAccount;
-    private LocalDateTime dateTime;
-    private BigDecimal amount;
+    private String fromAccount;
+    private String toAccount;
+    private String dateTime;
+    private String amount;
     private String type;
 }

@@ -11,10 +11,10 @@ public class TransactionMapperImpl implements TransactionMapper {
     public TransactionResponseDto toDto(Transaction transaction) {
         return TransactionResponseDto.builder()
                 .id(transaction.getId())
-                .fromAccount(transaction.getFromAccount())
-                .toAccount(transaction.getToAccount())
-                .amount(transaction.getAmount())
-                .dateTime(transaction.getDateTime())
+                .fromAccount(transaction.getFromAccount().toString())
+                .toAccount(transaction.getToAccount().toString())
+                .amount(transaction.getAmount().toString())
+                .dateTime(transaction.getDateTime().toString())
                 .type(transaction.getType().toString())
                 .build();
     }

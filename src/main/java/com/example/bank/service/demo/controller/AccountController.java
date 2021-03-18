@@ -48,8 +48,8 @@ public class AccountController {
 
     @PostMapping("/transfer")
     public String transfer(@RequestBody TransactionRequestDto requestDto) {
-        transactionService.transfer(requestDto.getToAccount(),
-                requestDto.getFromAccount(), requestDto.getAmount());
+        transactionService.transfer(accountService.getByAccountNumber(requestDto.getToAccount()),
+                accountService.getByAccountNumber(requestDto.getFromAccount()), BigDecimal.valueOf(requestDto.getAmount()));
         return "Payment is successful!";
     }
 

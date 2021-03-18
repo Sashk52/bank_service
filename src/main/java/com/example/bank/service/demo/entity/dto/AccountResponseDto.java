@@ -6,6 +6,7 @@ import lombok.Data;
 @Data
 @Builder
 public class AccountResponseDto {
+    private Long userId;
     private Long id;
     private String accountNumber;
     private String currency;

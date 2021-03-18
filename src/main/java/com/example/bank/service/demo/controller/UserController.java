@@ -38,7 +38,7 @@ public class UserController {
         User user = userMapper.toEntity(userRequestDto);
         user.setId(userId);
         user.setRoles(userService.getById(userId).getRoles());
-        return userMapper.toDto(userService.update(user));
+        return userMapper.toDto(userService.save(user));
     }
 
     @GetMapping("/{userId}")
@@ -52,8 +52,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{userId}")
-    public String delete(@PathVariable Long userId) {
+    public void delete(@PathVariable Long userId) {
         userService.delete(userService.getById(userId));
-        return "User with id: " + userId + " was deleted!";
     }
 }

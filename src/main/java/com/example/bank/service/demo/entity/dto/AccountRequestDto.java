@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class AccountRequestDto {
     private String accountNumber;
-    private Currency currency;
-    private BigDecimal balance;
+    private String currency;
+    private Double balance;
     private Long userId;
 }
