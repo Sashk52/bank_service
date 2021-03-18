@@ -23,13 +23,18 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
+    public Account getByAccountNumber(String accountNumber) {
+        return accountRepository.getByAccountNumber(accountNumber).get();
+    }
+
+    @Override
     public void delete(Account account) {
         accountRepository.delete(account);
     }
 
     @Override
-    public Account getByAccountNumber(String accountNumber) {
-        return accountRepository.getByAccountNumber(accountNumber).get();
+    public List<Account> getAllAccountsByPhoneNumber(String phoneNumber) {
+        return accountRepository.getAccountsByUserPhoneNumber(phoneNumber);
     }
 
     @Override
